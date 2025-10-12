@@ -10,6 +10,8 @@ import Counselors from "./components/Counselors";
 import Testimonials from "./components/Testimonials";
 import CTA from "./components/CTA";
 import EnquiryModal from "./components/EnquiryModal";
+import WhatsAppButton from './components/WhatsAppButton';
+import EnquiryButton from "./components/EnquiryButton";
 
 export default function Home() {
   return (
@@ -24,6 +26,8 @@ export default function Home() {
           <Counselors />
           <Testimonials />
           <CTA />
+          <WhatsAppButton />
+          <EnquiryButton />
         </main>
         <Footer />
         <EnquiryModal />

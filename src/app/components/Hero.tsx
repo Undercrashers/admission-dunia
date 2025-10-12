@@ -104,8 +104,8 @@ export default function Hero() {
               style={{ animationDelay: "-2.8s" }}
             >
               <img
-                src="/college/vit.png"
-                alt="VIT"
+                src="/college/lpu.jpeg"
+                alt="LPU"
                 className="rounded-full w-full h-full object-cover"
               />
             </div>
@@ -114,8 +114,8 @@ export default function Hero() {
               style={{ animationDelay: "-3.6s" }}
             >
               <img
-                src="/college/amity.png"
-                alt="Amity"
+                src="/college/rv.jpeg"
+                alt="RV College"
                 className="rounded-full w-full h-full object-cover"
               />
             </div>
@@ -124,8 +124,8 @@ export default function Hero() {
               style={{ animationDelay: "-4.4s" }}
             >
               <img
-                src="/college/bits.png"
-                alt="BITS"
+                src="/college/cmcvellore.png"
+                alt="CMC Vellore"
                 className="rounded-full w-full h-full object-cover"
               />
             </div>

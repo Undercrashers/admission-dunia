@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
-        <Link href="#" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <svg
             className="h-8 w-8 text-blue-600"
             xmlns="http://www.w3.org/2000/svg"
@@ -34,13 +34,14 @@ export default function Header() {
             Top Universities
           </Link>
           <Link
-            href="#college-finder"
+            href="/colleges"
             className="hover:text-blue-600 transition-colors font-medium"
           >
             College Finder
           </Link>
+          
           <Link
-            href="#counselors"
+            href="expert"
             className="hover:text-blue-600 transition-colors font-medium"
           >
             Expert Counseling

@@ -3,51 +3,51 @@
 export default function Partners() {
   const logos = [
     {
-      src: "https://placehold.co/200x100/FFFFFF/000000?text=IIT+Bombay",
+      src: "/college/IITBombay.png",
       alt: "IIT Bombay Logo",
     },
     {
-      src: "https://placehold.co/200x100/FFFFFF/000000?text=AIIMS+Delhi",
+      src: "/college/aimsdelhi.png",
       alt: "AIIMS Delhi Logo",
     },
     {
-      src: "https://placehold.co/200x100/FFFFFF/000000?text=IIM+Ahmedabad",
+      src: "/college/iim.jpeg",
       alt: "IIM Ahmedabad Logo",
     },
     {
-      src: "https://placehold.co/200x100/FFFFFF/000000?text=BITS+Pilani",
+      src: "/college/bits.png",
       alt: "BITS Pilani Logo",
     },
     {
-      src: "https://placehold.co/200x100/FFFFFF/000000?text=CMC+Vellore",
+      src: "/college/cmcvellore.png",
       alt: "CMC Vellore Logo",
     },
     {
-      src: "https://placehold.co/200x100/FFFFFF/000000?text=IIM+Bangalore",
+      src: "/college/iimbangalore.png",
       alt: "IIM Bangalore Logo",
     },
     {
-      src: "https://placehold.co/200x100/FFFFFF/000000?text=VIT+Vellore",
+      src: "/college/vit.png",
       alt: "VIT Vellore Logo",
     },
     {
-      src: "https://placehold.co/200x100/FFFFFF/000000?text=JIPMER",
+      src: "/college/jpimer.png",
       alt: "JIPMER Logo",
     },
     {
-      src: "https://placehold.co/200x100/FFFFFF/000000?text=KIIT",
+      src: "/college/kiit.png",
       alt: "KIIT Logo",
     },
     {
-      src: "https://placehold.co/200x100/FFFFFF/000000?text=Manipal+(MIT)",
+      src: "/college/manipal.jpeg",
       alt: "Manipal Logo",
     },
     {
-      src: "https://placehold.co/200x100/FFFFFF/000000?text=NMIMS",
+      src: "/college/nvims.png",
       alt: "NMIMS Logo",
     },
     {
-      src: "https://placehold.co/200x100/FFFFFF/000000?text=Amrita",
+      src: "/college/amrita.png",
       alt: "Amrita Logo",
     },
   ];
@@ -76,7 +76,7 @@ export default function Partners() {
         </div>
         <div className="text-center mt-16">
           <a
-            href="#college-finder"
+            href="/colleges"
             className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md"
           >
             Explore More Colleges
