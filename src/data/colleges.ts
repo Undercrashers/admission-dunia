@@ -10,7 +10,7 @@ export type College = {
 export const ALL_COLLEGES: College[] = [
   {
     name: "BITS PILANI",
-    photo: "/public/college/bits.png",
+    photo: "/college_building/bitsp.jpeg",
     state: "Rajasthan",
     levels: ["UG", "PG"],
     programs: ["Computer Science", "Mechanical Eng.", "Electrical Eng.", "Chemical Eng.", "Economics"],
