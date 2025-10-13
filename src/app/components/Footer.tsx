@@ -68,10 +68,10 @@ export default function Footer() {
                 <p>123 Education Lane, Knowledge City</p>
               </li>
               <li>
-                <p>contact@admissiondunia.com</p>
+                <p>admissionduniaedu@gmail.com</p>
               </li>
               <li>
-                <p>+1 234 567 8900</p>
+                <p>+91 9955035575</p>
               </li>
             </ul>
           </div>
