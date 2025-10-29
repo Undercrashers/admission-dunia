@@ -325,7 +325,7 @@ export default function CollegesPage() {
                       </div>
 
                       <a
-                        href={`/college/${college.slug}`}
+                        href={`/colleges/${college.slug}`}
                         className="mt-auto block text-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all"
                       >
                         View Details

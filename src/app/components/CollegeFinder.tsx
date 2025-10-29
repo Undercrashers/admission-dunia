@@ -1,12 +1,14 @@
 "use client";
 import { useMemo, useState } from "react";
+import Link from "next/link";
 
 type College = {
   name: string;
   location: string;
-  stream: "Engineering" | "Medical" | "Management";
+  stream: "Engineering" | "Medical" | "Management" | "Law";
   degrees: string[];
   logo: string;
+  slug?: string; // Optional slug for linking to details page
 };
 
 const COLLEGES: College[] = [
@@ -16,6 +18,7 @@ const COLLEGES: College[] = [
     stream: "Engineering",
     degrees: ["B.Tech"],
     logo: "college_building/niitk.jpeg",
+    slug: "niit-kurukshetra",
   },
   {
     name: "BITS PILANI",
@@ -23,6 +26,7 @@ const COLLEGES: College[] = [
     stream: "Engineering",
     degrees: ["B.Tech", "B.E."],
     logo: "college_building/bitsp.jpeg",
+    slug: "bits-pilani",
   },
   {
     name: "VIT",
@@ -30,6 +34,7 @@ const COLLEGES: College[] = [
     stream: "Engineering",
     degrees: ["B.Tech"],
     logo: "college_building/viit.webp",
+    slug: "vit-vellore",
   },
   {
     name: "MANIPAL [MIT]",
@@ -37,6 +42,7 @@ const COLLEGES: College[] = [
     stream: "Engineering",
     degrees: ["B.Tech", "B.E."],
     logo: "college_building/manipal.jpeg",
+    slug: "manipal-institute-of-technology",
   },
   {
     name: "AMRITA Vishwa Vidyapeetham",
@@ -44,6 +50,7 @@ const COLLEGES: College[] = [
     stream: "Engineering",
     degrees: ["B.Tech"],
     logo: "college_building/amrita.jpeg",
+    slug: "amrita-vishwa-vidyapeetham",
   },
   {
     name: "KALINGA Institute of Technology",
@@ -51,6 +58,7 @@ const COLLEGES: College[] = [
     stream: "Engineering",
     degrees: ["B.Tech"],
     logo: "college_building/kiit.jpg",
+    slug: "kiit-bhubaneswar",
   },
   {
     name: "RAMAIAH Institute of Technology",
@@ -58,6 +66,7 @@ const COLLEGES: College[] = [
     stream: "Engineering",
     degrees: ["B.Tech"],
     logo: "college_building/ram.jpeg",
+    slug: "ramaiah-institute-of-technology",
   },
   {
     name: "BPIT",
@@ -65,6 +74,7 @@ const COLLEGES: College[] = [
     stream: "Engineering",
     degrees: ["B.Tech"],
     logo: "college_building/bpit.jpeg",
+    slug: "bpit-delhi",
   },
   {
     name: "DR. AKHILESH DAS GUPTA Institute",
@@ -72,6 +82,7 @@ const COLLEGES: College[] = [
     stream: "Engineering",
     degrees: ["B.Tech", "MBA"],
     logo: "college_building/akhil.jpeg",
+    slug: "akhilesh-das-gupta-institute",
   },
   {
     name: "Banasthali Vidyapith",
@@ -79,6 +90,7 @@ const COLLEGES: College[] = [
     stream: "Engineering",
     degrees: ["B.Tech", "B.E."],
     logo: "college_building/banas.jpeg",
+    slug: "banasthali-vidyapith",
   },
   {
     name: "K.J Somaiya / Dr.D.Y. Patil",
@@ -86,6 +98,14 @@ const COLLEGES: College[] = [
     stream: "Engineering",
     degrees: ["B.Tech"],
     logo: "college_building/kj.jpeg",
+    slug: "kj-somaiya",
+  },
+  {
+    name: "SRM Institute of Science and Technology",
+    location: "Chennai",
+    stream: "Engineering",
+    degrees: ["B.Tech", "B.E."],
+    logo: "college_building/niitk.jpeg",
   },
   {
     name: "NMIMS",
@@ -93,6 +113,7 @@ const COLLEGES: College[] = [
     stream: "Management",
     degrees: ["BBA", "MBA"],
     logo: "college_building/nmim.jpeg",
+    slug: "nmims-mumbai",
   },
   {
     name: "IIET",
@@ -100,41 +121,7 @@ const COLLEGES: College[] = [
     stream: "Management",
     degrees: ["MBA"],
     logo: "college_building/iiet.jpeg",
-  },
-  {
-    name: "AIIMS Delhi",
-    location: "New Delhi",
-    stream: "Medical",
-    degrees: ["MBBS"],
-    logo: "college_building/aims.jpeg",
-  },
-  {
-    name: "CMC Vellore",
-    location: "Vellore",
-    stream: "Medical",
-    degrees: ["MBBS"],
-    logo: "college_building/cmc.jpeg",
-  },
-  {
-    name: "JIPMER",
-    location: "Puducherry",
-    stream: "Medical",
-    degrees: ["MBBS"],
-    logo: "college_building/jpi.jpeg",
-  },
-  {
-    name: "AFMC Pune",
-    location: "Pune",
-    stream: "Medical",
-    degrees: ["MBBS"],
-    logo: "college_building/afmc.webp",
-  },
-  {
-    name: "KMC Manipal",
-    location: "Manipal",
-    stream: "Medical",
-    degrees: ["MBBS", "BDS"],
-    logo: "college_building/kmc.jpg",
+    slug: "iiet",
   },
   {
     name: "IIM Ahmedabad",
@@ -142,6 +129,7 @@ const COLLEGES: College[] = [
     stream: "Management",
     degrees: ["MBA", "PGDM"],
     logo: "college_building/iim.jpeg",
+    slug: "iim-ahmedabad",
   },
   {
     name: "IIM Bangalore",
@@ -149,6 +137,7 @@ const COLLEGES: College[] = [
     stream: "Management",
     degrees: ["MBA", "PGDM"],
     logo: "college_building/iimb.jpeg",
+    slug: "iim-bangalore",
   },
   {
     name: "FMS Delhi",
@@ -156,15 +145,112 @@ const COLLEGES: College[] = [
     stream: "Management",
     degrees: ["MBA"],
     logo: "college_building/fms.jpeg",
+    slug: "fms-delhi",
+  },
+  {
+    name: "XLRI Jamshedpur",
+    location: "Jamshedpur",
+    stream: "Management",
+    degrees: ["MBA", "PGDM"],
+    logo: "college_building/nmim.jpeg",
+  },
+  {
+    name: "AIIMS Delhi",
+    location: "New Delhi",
+    stream: "Medical",
+    degrees: ["MBBS"],
+    logo: "college_building/aims.jpeg",
+    slug: "aiims-delhi",
+  },
+  {
+    name: "CMC Vellore",
+    location: "Vellore",
+    stream: "Medical",
+    degrees: ["MBBS"],
+    logo: "college_building/cmc.jpeg",
+    slug: "cmc-vellore",
+  },
+  {
+    name: "JIPMER",
+    location: "Puducherry",
+    stream: "Medical",
+    degrees: ["MBBS"],
+    logo: "college_building/jpi.jpeg",
+    slug: "jipmer-puducherry",
+  },
+  {
+    name: "AFMC Pune",
+    location: "Pune",
+    stream: "Medical",
+    degrees: ["MBBS"],
+    logo: "college_building/afmc.webp",
+    slug: "afmc-pune",
+  },
+  {
+    name: "KMC Manipal",
+    location: "Manipal",
+    stream: "Medical",
+    degrees: ["MBBS", "BDS"],
+    logo: "college_building/kmc.jpg",
+    slug: "kmc-manipal",
+  },
+  {
+    name: "Maulana Azad Medical College",
+    location: "New Delhi",
+    stream: "Medical",
+    degrees: ["MBBS"],
+    logo: "college_building/aims.jpeg",
+  },
+  {
+    name: "National Law School of India University (NLSIU)",
+    location: "Bangalore",
+    stream: "Law",
+    degrees: ["BA LLB", "LLM"],
+    logo: "college_building/iim.jpeg",
+  },
+  {
+    name: "NALSAR University of Law",
+    location: "Hyderabad",
+    stream: "Law",
+    degrees: ["BA LLB", "BBA LLB", "LLM"],
+    logo: "college_building/fms.jpeg",
+  },
+  {
+    name: "National Law University, Delhi",
+    location: "New Delhi",
+    stream: "Law",
+    degrees: ["BA LLB", "LLM"],
+    logo: "college_building/nmim.jpeg",
+  },
+  {
+    name: "Gujarat National Law University",
+    location: "Gandhinagar",
+    stream: "Law",
+    degrees: ["BA LLB", "BBA LLB"],
+    logo: "college_building/iiet.jpeg",
+  },
+  {
+    name: "Symbiosis Law School",
+    location: "Pune",
+    stream: "Law",
+    degrees: ["BA LLB", "BBA LLB"],
+    logo: "college_building/kj.jpeg",
+  },
+  {
+    name: "Army Institute of Law",
+    location: "Mohali",
+    stream: "Law",
+    degrees: ["BA LLB", "LLM"],
+    logo: "college_building/afmc.webp",
   },
 ];
 
-
-const STREAMS = ["Engineering", "Medical", "Management"] as const;
+const STREAMS = ["Engineering", "Medical", "Management", "Law"] as const;
 const DEGREE_MAP: Record<(typeof STREAMS)[number], string[]> = {
   Engineering: ["All", "B.Tech", "B.E."],
   Medical: ["All", "MBBS", "BDS"],
   Management: ["All", "MBA", "BBA", "PGDM"],
+  Law: ["All", "BA LLB", "BBA LLB", "LLM"],
 };
 
 export default function CollegeFinder() {
@@ -183,14 +269,18 @@ export default function CollegeFinder() {
   }, [activeStream, activeDegree]);
 
   return (
-    <section id="college-finder" className="py-20 bg-gradient-to-b from-slate-50 to-white">
+    <section
+      id="college-finder"
+      className="py-20 bg-gradient-to-b from-slate-50 to-white"
+    >
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-800 mb-3 tracking-tight">
             Find Your Perfect College
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Choose your stream and degree to explore top-ranked colleges suited for you.
+            Choose your stream and degree to explore top-ranked colleges suited
+            for you.
           </p>
         </div>
 
@@ -248,14 +338,14 @@ export default function CollegeFinder() {
             filteredColleges.map((college) => {
               // split locations by "/" and trim whitespace; fallback to single location
               const locations = college.location
-                ? college.location.split("/").map((s) => s.trim()).filter(Boolean)
+                ? college.location
+                    .split("/")
+                    .map((s) => s.trim())
+                    .filter(Boolean)
                 : [];
 
-              return (
-                <div
-                  key={college.name}
-                  className="group bg-white rounded-2xl shadow-sm hover:shadow-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 border border-gray-100"
-                >
+              const cardContent = (
+                <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 border border-gray-100">
                   <div className="relative w-full h-40">
                     <img
                       src={college.logo}
@@ -275,12 +365,17 @@ export default function CollegeFinder() {
                     <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-sm text-gray-600 tracking-wide">
                       {locations.length > 0 ? (
                         locations.map((loc, i) => (
-                          <span key={`${college.name}-loc-${i}`} className="px-0.5">
+                          <span
+                            key={`${college.name}-loc-${i}`}
+                            className="px-0.5"
+                          >
                             {loc}
                           </span>
                         ))
                       ) : (
-                        <span className="text-sm text-gray-600">{college.location}</span>
+                        <span className="text-sm text-gray-600">
+                          {college.location}
+                        </span>
                       )}
                     </div>
 
@@ -288,8 +383,24 @@ export default function CollegeFinder() {
                     <p className="mt-3 text-sm text-gray-700 font-medium">
                       {college.degrees.join(", ")}
                     </p>
+
+                    {college.slug && (
+                      <div className="mt-4">
+                        <span className="text-blue-600 text-sm font-semibold hover:underline">
+                          View Details →
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
+              );
+
+              return college.slug ? (
+                <Link key={college.name} href={`/colleges/${college.slug}`}>
+                  {cardContent}
+                </Link>
+              ) : (
+                <div key={college.name}>{cardContent}</div>
               );
             })
           )}
@@ -297,12 +408,12 @@ export default function CollegeFinder() {
 
         {/* CTA */}
         <div className="text-center mt-14">
-          <a
+          <Link
             href={`/colleges?stream=${activeStream}&degree=${activeDegree}`}
             className="inline-block bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-8 py-3 rounded-lg font-semibold shadow-md hover:from-blue-700 hover:to-indigo-600 transition-all"
           >
-            View All Colleges (Coming Soon)
-          </a>
+            View All {activeStream} Colleges
+          </Link>
         </div>
       </div>
     </section>
