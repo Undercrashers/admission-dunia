@@ -29,7 +29,7 @@ const TOP_MEDICAL_COLLEGES = [
     cutoff: "NEET 2025 Cut off 215",
     deadline: "15 May - 30 Jun 2025",
     fees: "₹2,430",
-    logo: "/college/aimsdelhi.png",
+    logo: "/college/pgi.jpeg",
     slug: null,
   },
   {
@@ -53,7 +53,7 @@ const TOP_MEDICAL_COLLEGES = [
     cutoff: "NEET 2025 Cut off 265",
     deadline: "15 May - 30 Jun 2025",
     fees: "₹1,396",
-    logo: "/college/aimsdelhi.png",
+    logo: "/college/aimsj.png",
     slug: null,
   },
   {
@@ -77,7 +77,7 @@ const TOP_MEDICAL_COLLEGES = [
     cutoff: "NEET 2025 Cut off 510",
     deadline: "1 Jun - 28 Jun 2025",
     fees: "₹75,000",
-    logo: "/college/aimsdelhi.png",
+    logo: "/college/kg.png",
     slug: null,
   },
   {
@@ -89,7 +89,7 @@ const TOP_MEDICAL_COLLEGES = [
     cutoff: "NEET 2025 Cut off 628",
     deadline: "20 May - 15 Jun 2025",
     fees: "Fully Funded",
-    logo: "/college/aimsdelhi.png",
+    logo: "/college/afmc.webp",
     slug: "afmc-pune",
   },
   {
@@ -101,7 +101,7 @@ const TOP_MEDICAL_COLLEGES = [
     cutoff: "NEET 2025 Cut off 785",
     deadline: "1 Jun - 25 Jun 2025",
     fees: "₹50,000",
-    logo: "/college/aimsdelhi.png",
+    logo: "/college/mdm.png",
     slug: null,
   },
   {
@@ -125,7 +125,7 @@ const TOP_MEDICAL_COLLEGES = [
     cutoff: "NEET 2025 Cut off 2950",
     deadline: "5 Jun - 28 Jun 2025",
     fees: "₹60,000",
-    logo: "/college/aimsdelhi.png",
+    logo: "/college/gmc.jpeg",
     slug: null,
   },
 ];

@@ -17,7 +17,7 @@ const TOP_LAW_COLLEGES = [
     cutoff: "CLAT 2025 Rank 50",
     deadline: "15 Apr - 30 May 2025",
     fees: "₹2,50,000",
-    logo: "/college/iim.jpeg",
+    logo: "/college/NLU_Delhi.png",
     slug: null,
   },
   {
@@ -29,7 +29,7 @@ const TOP_LAW_COLLEGES = [
     cutoff: "CLAT 2025 Rank 80",
     deadline: "15 Apr - 30 May 2025",
     fees: "₹2,20,000",
-    logo: "/college/iim.jpeg",
+    logo: "/college/nlsiu.png",
     slug: null,
   },
   {
@@ -41,7 +41,7 @@ const TOP_LAW_COLLEGES = [
     cutoff: "CLAT 2025 Rank 120",
     deadline: "15 Apr - 30 May 2025",
     fees: "₹2,10,000",
-    logo: "/college/nvims.png",
+    logo: "/college/nalsar.jpeg",
     slug: null,
   },
   {
@@ -53,7 +53,7 @@ const TOP_LAW_COLLEGES = [
     cutoff: "CLAT 2025 Rank 250",
     deadline: "15 Apr - 30 May 2025",
     fees: "₹1,85,000",
-    logo: "/college/iim.jpeg",
+    logo: "/college/NLIU.png",
     slug: null,
   },
   {
@@ -77,7 +77,7 @@ const TOP_LAW_COLLEGES = [
     cutoff: "CLAT 2025 Rank 400",
     deadline: "15 Apr - 30 May 2025",
     fees: "₹1,75,000",
-    logo: "/college/iim.jpeg",
+    logo: "/college/GNLU.png",
     slug: null,
   },
   {
@@ -89,7 +89,7 @@ const TOP_LAW_COLLEGES = [
     cutoff: "CLAT 2025 Rank 500",
     deadline: "15 Apr - 30 May 2025",
     fees: "₹1,90,000",
-    logo: "/college/nvims.png",
+    logo: "/college/RGNUL.jpeg",
     slug: null,
   },
   {
@@ -113,7 +113,7 @@ const TOP_LAW_COLLEGES = [
     cutoff: "SLAT 2025 Score 85+",
     deadline: "1 May - 20 Jun 2025",
     fees: "₹3,50,000",
-    logo: "/college/nvims.png",
+    logo: "/college/WBNUJS.png",
     slug: null,
   },
   {
@@ -125,7 +125,7 @@ const TOP_LAW_COLLEGES = [
     cutoff: "CLAT 2025 Rank 1200",
     deadline: "15 Apr - 30 May 2025",
     fees: "₹1,50,000",
-    logo: "/college/aimsdelhi.png",
+    logo: "/college/ail.png",
     slug: null,
   },
 ];

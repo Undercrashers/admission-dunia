@@ -14,6 +14,10 @@ export default function CollegesPage() {
   const [degreeFilter, setDegreeFilter] = useState("all");
   const [showFilters, setShowFilters] = useState(false);
 
+  // Lazy loading states
+  const [displayedCount, setDisplayedCount] = useState(12); // Show 12 colleges initially
+  const ITEMS_PER_PAGE = 12;
+
   // ✅ Image Fix
   const normalizeImageSrc = (src?: string) => {
     if (!src) return "/default-college.jpg";
@@ -57,6 +61,7 @@ export default function CollegesPage() {
     }
 
     setFiltered(results);
+    setDisplayedCount(ITEMS_PER_PAGE); // Reset to initial count when filters change
   }, [search, stateFilter, degreeFilter]);
 
   return (
@@ -257,6 +262,10 @@ export default function CollegesPage() {
               <p className="text-sm text-slate-600 font-medium">
                 Showing{" "}
                 <span className="text-blue-600 font-bold">
+                  {Math.min(displayedCount, filtered.length)}
+                </span>{" "}
+                of{" "}
+                <span className="text-blue-600 font-bold">
                   {filtered.length}
                 </span>{" "}
                 {filtered.length === 1 ? "college" : "colleges"}
@@ -275,7 +284,7 @@ export default function CollegesPage() {
                   </p>
                 </div>
               ) : (
-                filtered.map((college) => (
+                filtered.slice(0, displayedCount).map((college) => (
                   <div
                     key={college.slug}
                     className="group backdrop-blur-xl bg-white/70 border border-white/60 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 overflow-hidden hover:-translate-y-2 flex flex-col h-[450px]"
@@ -335,6 +344,41 @@ export default function CollegesPage() {
                 ))
               )}
             </div>
+
+            {/* Load More Button */}
+            {displayedCount < filtered.length && (
+              <div className="mt-12 text-center">
+                <button
+                  onClick={() =>
+                    setDisplayedCount((prev) => prev + ITEMS_PER_PAGE)
+                  }
+                  className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <span className="relative z-10">Load More Colleges</span>
+                  <svg
+                    className="w-5 h-5 transition-transform duration-300 group-hover:translate-y-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </button>
+                <p className="mt-4 text-sm text-slate-600">
+                  {filtered.length - displayedCount} more{" "}
+                  {filtered.length - displayedCount === 1
+                    ? "college"
+                    : "colleges"}{" "}
+                  to load
+                </p>
+              </div>
+            )}
           </div>
         </main>
         <Footer />

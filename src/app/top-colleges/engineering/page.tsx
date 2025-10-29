@@ -29,7 +29,7 @@ const TOP_ENGINEERING_COLLEGES = [
     cutoff: "JEE-Advanced 2025 Cut off 355",
     deadline: "3 June - 22 Jun 2025",
     fees: "₹2,27,750",
-    logo: "/college/IITBombay.png",
+    logo: "/college/iitdelhi.png",
     slug: null,
   },
   {
@@ -41,7 +41,7 @@ const TOP_ENGINEERING_COLLEGES = [
     cutoff: "JEE-Advanced 2025 Cut off 5512",
     deadline: "3 June - 22 Jun 2025",
     fees: "₹2,53,417",
-    logo: "/college/IITBombay.png",
+    logo: "/college/IIT_Madras_Logo.png",
     slug: null,
   },
   {
@@ -53,7 +53,7 @@ const TOP_ENGINEERING_COLLEGES = [
     cutoff: "JEE-Advanced 2025 Cut off 271",
     deadline: "3 June - 22 Jun 2025",
     fees: "₹2,53,120",
-    logo: "/college/IITBombay.png",
+    logo: "/college/iitk.png",
     slug: null,
   },
   {
@@ -65,7 +65,7 @@ const TOP_ENGINEERING_COLLEGES = [
     cutoff: "JEE-Advanced 2025 Cut off 953",
     deadline: "3 June - 22 Jun 2025",
     fees: "₹2,30,600",
-    logo: "/college/IITBombay.png",
+    logo: "/college/IITKGP.png",
     slug: null,
   },
   {
@@ -77,7 +77,7 @@ const TOP_ENGINEERING_COLLEGES = [
     cutoff: "JEE-Advanced 2025 Cut off 845",
     deadline: "3 June - 22 Jun 2025",
     fees: "₹2,24,100",
-    logo: "/college/IITBombay.png",
+    logo: "/college/IITR.jpeg",
     slug: null,
   },
   {
@@ -89,7 +89,7 @@ const TOP_ENGINEERING_COLLEGES = [
     cutoff: "JEE-Advanced 2025 Cut off 1276",
     deadline: "3 June - 22 Jun 2025",
     fees: "₹2,43,700",
-    logo: "/college/IITBombay.png",
+    logo: "/college/IITG.png",
     slug: null,
   },
   {
@@ -113,7 +113,7 @@ const TOP_ENGINEERING_COLLEGES = [
     cutoff: "JEE-Advanced 2025 Cut off 1015",
     deadline: "3 June - 22 Jun 2025",
     fees: "₹2,49,888",
-    logo: "/college/IITBombay.png",
+    logo: "/college/IITH.png",
     slug: null,
   },
   {
@@ -125,7 +125,7 @@ const TOP_ENGINEERING_COLLEGES = [
     cutoff: "JEE-Advanced 2025 Cut off 1924",
     deadline: "3 June - 22 Jun 2025",
     fees: "₹2,18,815",
-    logo: "/college/IITBombay.png",
+    logo: "/college/IIT_BHU.jpeg",
     slug: null,
   },
 ];

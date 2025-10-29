@@ -41,7 +41,7 @@ const TOP_MANAGEMENT_COLLEGES = [
     cutoff: "CAT 2025 Percentile 99+",
     deadline: "15 Nov - 30 Nov 2025",
     fees: "₹27,00,000",
-    logo: "/college/iim.jpeg",
+    logo: "/college/iimc.png",
     slug: null,
   },
   {
@@ -53,7 +53,7 @@ const TOP_MANAGEMENT_COLLEGES = [
     cutoff: "CAT 2025 Percentile 98.5+",
     deadline: "20 Nov - 5 Dec 2025",
     fees: "₹1,92,000",
-    logo: "/college/iim.jpeg",
+    logo: "/college/FMS.png",
     slug: "fms-delhi",
   },
   {
@@ -65,7 +65,7 @@ const TOP_MANAGEMENT_COLLEGES = [
     cutoff: "XAT 2025 Percentile 95+",
     deadline: "1 Dec - 20 Dec 2025",
     fees: "₹25,00,000",
-    logo: "/college/nvims.png",
+    logo: "/college/xlri.png",
     slug: null,
   },
   {
@@ -77,7 +77,7 @@ const TOP_MANAGEMENT_COLLEGES = [
     cutoff: "CAT 2025 Percentile 97+",
     deadline: "15 Nov - 30 Nov 2025",
     fees: "₹22,00,000",
-    logo: "/college/iim.jpeg",
+    logo: "/college/iiml.png",
     slug: null,
   },
   {
@@ -89,7 +89,7 @@ const TOP_MANAGEMENT_COLLEGES = [
     cutoff: "CAT 2025 Percentile 97+",
     deadline: "15 Nov - 30 Nov 2025",
     fees: "₹21,50,000",
-    logo: "/college/iim.jpeg",
+    logo: "/college/iimk.png",
     slug: null,
   },
   {
@@ -113,7 +113,7 @@ const TOP_MANAGEMENT_COLLEGES = [
     cutoff: "CAT 2025 Percentile 95+",
     deadline: "15 Nov - 25 Nov 2025",
     fees: "₹17,50,000",
-    logo: "/college/nvims.png",
+    logo: "/college/spj.jpeg",
     slug: null,
   },
   {
@@ -125,7 +125,7 @@ const TOP_MANAGEMENT_COLLEGES = [
     cutoff: "CAT 2025 Percentile 95+",
     deadline: "15 Nov - 30 Nov 2025",
     fees: "₹21,00,000",
-    logo: "/college/iim.jpeg",
+    logo: "/college/mdi.webp",
     slug: null,
   },
 ];

@@ -3,76 +3,21 @@ import { Phone, Mail, Award, Star } from "lucide-react";
 export default function Counselors() {
   const list = [
     {
-      name: "Rajesh Kumar",
-      role: "Engineering Admissions Expert",
-      exp: "12+ Years",
-      initials: "RK",
-      color: "3B82F6",
-      phone: "+919876543210",
-      email: "rajesh.k@admissiondunia.com",
-      about:
-        "Specializes in IIT, NIT, and BITS admissions. Has helped over 500 students secure seats in top engineering colleges.",
-      specialties: ["IIT/NIT", "JEE Counseling", "Private Colleges"],
-    },
-    {
-      name: "Sunita Patel",
-      role: "Medical Admissions Lead",
-      exp: "15+ Years",
-      initials: "SP",
+      name: "Vaid Vrath",
+      role: "NEET & Medical Admissions Expert",
+      exp: "20 Years",
+      initials: "VV",
       color: "10B981",
-      phone: "+919876543211",
-      email: "sunita.p@admissiondunia.com",
+      phone: "+919955035575",
+      email: "vaidvrath@admissiondunia.com",
       about:
-        "Expert in NEET counseling and admissions for AIIMS, JIPMER, and other top medical colleges across India.",
-      specialties: ["NEET Guidance", "AIIMS/JIPMER", "Medical Colleges"],
-    },
-    {
-      name: "Amit Varma",
-      role: "Management & MBA Specialist",
-      exp: "10 Years",
-      initials: "AV",
-      color: "8B5CF6",
-      phone: "+919876543212",
-      email: "amit.v@admissiondunia.com",
-      about:
-        "IIM Alumnus specializing in CAT, GMAT, and applications for top B-Schools including IIMs and FMS.",
-      specialties: ["CAT/GMAT", "IIM Applications", "B-Schools"],
-    },
-    {
-      name: "Priya Desai",
-      role: "Overseas Education Consultant",
-      exp: "8+ Years",
-      initials: "PD",
-      color: "F59E0B",
-      phone: "+919876543213",
-      email: "priya.d@admissiondunia.com",
-      about:
-        "Guides students for admissions in the USA, Canada, UK, and Australia. Expertise in SOPs and visa processes.",
-      specialties: ["Study Abroad", "SOP/Visa", "US/UK/Canada"],
-    },
-    {
-      name: "Vikram Mehra",
-      role: "Private Universities Head",
-      exp: "11 Years",
-      initials: "VM",
-      color: "EF4444",
-      phone: "+919876543214",
-      email: "vikram.m@admissiondunia.com",
-      about:
-        "In-depth knowledge of admission processes for VIT, Manipal, SRM, KIIT, and other top private institutions.",
-      specialties: ["VIT/Manipal", "SRM/KIIT", "Private Universities"],
-    },
-    {
-      name: "Aisha Iyer",
-      role: "Profile Building & BBA Expert",
-      exp: "7 Years",
-      initials: "AI",
-      color: "6366F1",
-      phone: "+919876543215",
-      email: "aisha.i@admissiondunia.com",
-      about:
-        "Focuses on helping students build a strong profile for top BBA and integrated programs right from high school.",
-      specialties: ["BBA Programs", "Profile Building", "IPM/IPMAT"],
+        "Expert in NEET counseling and medical admissions with 20 years of experience. Specializes in guiding students for top medical colleges across India.",
+      specialties: [
+        "NEET Counseling",
+        "Medical Admissions",
+        "AIIMS/JIPMER",
+        "Government Medical Colleges",
+      ],
     },
   ];
 
@@ -84,19 +29,20 @@ export default function Counselors() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Meet Our Expert Counselors
+            Meet Our Expert Counselor
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Connect with our experienced team for personalized guidance and
-            support throughout your admission journey.
+            Connect with our experienced medical admissions expert for
+            personalized guidance and support throughout your NEET counseling
+            journey.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex justify-center">
           {list.map((c, index) => (
             <div
               key={c.email}
-              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200"
+              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200 w-full max-w-md"
               style={{
                 animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`,
               }}
@@ -186,11 +132,11 @@ export default function Counselors() {
         {/* CTA Section */}
         <div className="mt-16 text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 shadow-xl">
           <h3 className="text-3xl font-bold text-white mb-4">
-            Ready to Start Your Journey?
+            Ready to Start Your Medical Journey?
           </h3>
           <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
-            Book a free consultation with our experts and get personalized
-            guidance for your college admissions
+            Book a free consultation with our NEET expert and get personalized
+            guidance for your medical college admissions
           </p>
           <button
             onClick={() => {
