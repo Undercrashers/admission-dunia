@@ -75,7 +75,7 @@ export default function EnquiryModal() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
           >
             <div className="relative bg-white/90 backdrop-blur-lg border border-slate-200 p-8 md:p-10 rounded-2xl shadow-2xl w-full max-w-2xl">
               <button
@@ -109,10 +109,30 @@ export default function EnquiryModal() {
               <form onSubmit={onSubmit} noValidate>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   {[
-                    { id: "name", label: "Full Name", type: "text", placeholder: "Arjun Singh" },
-                    { id: "email", label: "Email Address", type: "email", placeholder: "arjun.singh@admission.com" },
-                    { id: "phone", label: "Phone Number", type: "tel", placeholder: "+91 98765 43210" },
-                    { id: "course", label: "Desired Course", type: "text", placeholder: "e.g., Computer Science" },
+                    {
+                      id: "name",
+                      label: "Full Name",
+                      type: "text",
+                      placeholder: "Arjun Singh",
+                    },
+                    {
+                      id: "email",
+                      label: "Email Address",
+                      type: "email",
+                      placeholder: "arjun.singh@admission.com",
+                    },
+                    {
+                      id: "phone",
+                      label: "Phone Number",
+                      type: "tel",
+                      placeholder: "+91 98765 43210",
+                    },
+                    {
+                      id: "course",
+                      label: "Desired Course",
+                      type: "text",
+                      placeholder: "e.g., Computer Science",
+                    },
                   ].map(({ id, label, type, placeholder }) => (
                     <div key={id}>
                       <label
@@ -125,8 +145,9 @@ export default function EnquiryModal() {
                         id={id}
                         type={type}
                         required
-                        className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm md:text-base ${
-                          status.type === "error" && !formState[id as keyof typeof formState]?.trim()
+                        className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm md:text-base text-gray-900 placeholder:text-gray-400 bg-white ${
+                          status.type === "error" &&
+                          !formState[id as keyof typeof formState]?.trim()
                             ? "border-red-500"
                             : "border-slate-300"
                         }`}
@@ -148,7 +169,7 @@ export default function EnquiryModal() {
                   <textarea
                     id="message"
                     rows={4}
-                    className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm md:text-base"
+                    className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm md:text-base text-gray-900 placeholder:text-gray-400 bg-white"
                     placeholder="Tell us more about your academic goals..."
                     value={formState.message}
                     onChange={handleChange("message")}

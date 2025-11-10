@@ -5,12 +5,13 @@ import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Partners from "./components/Partners";
 import CollegeFinder from "./components/CollegeFinder";
+import StudyAbroad from "./components/StudyAbroad";
 import Services from "./components/Services";
 import Counselors from "./components/Counselors";
 import Testimonials from "./components/Testimonials";
 import CTA from "./components/CTA";
 import EnquiryModal from "./components/EnquiryModal";
-import WhatsAppButton from './components/WhatsAppButton';
+import WhatsAppButton from "./components/WhatsAppButton";
 import EnquiryButton from "./components/EnquiryButton";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
           <Hero />
           <Partners />
           <CollegeFinder />
+          <StudyAbroad />
           <Services />
           <Counselors />
           <Testimonials />
