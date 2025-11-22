@@ -33,22 +33,28 @@ export default function StudyAbroad() {
               <Link
                 key={country.slug}
                 href={`/study-abroad/${country.slug}`}
-                className="block group"
+                className="block group h-full"
                 onMouseEnter={() => setHoveredCard(country.slug)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
-                <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200 hover:-translate-y-2">
+                <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200 hover:-translate-y-2 h-full flex flex-col">
                   {/* Country Flag Badge */}
                   <div className="absolute top-4 right-4 z-10">
-                    <div className="text-3xl bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-md">
-                      {country.flag}
+                    <div className="bg-white/90 backdrop-blur-sm rounded-full p-1 shadow-md overflow-hidden">
+                      <Image
+                        src={`/flag/${country.slug}.png`}
+                        alt={`${country.name} flag`}
+                        width={48}
+                        height={48}
+                        className="w-12 h-12 object-cover rounded-full"
+                      />
                     </div>
                   </div>
 
                   {/* College Image */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative w-full h-52 overflow-hidden flex-shrink-0">
                     <Image
-                      src={`/study-abroad/${country.slug}-medical.jpg`}
+                      src={`/college/${country.slug}-medical.jpg`}
                       alt={`Medical college in ${country.name}`}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -64,23 +70,23 @@ export default function StudyAbroad() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
+                  <div className="p-6 flex flex-col flex-grow">
                     <div className="mb-3">
                       <h4 className="text-lg font-semibold text-gray-800 mb-1">
                         Featured Institution
                       </h4>
-                      <p className="text-blue-600 font-medium">
+                      <p className="text-blue-600 font-medium line-clamp-2">
                         {countryData.universities[0]?.name ||
                           "Top Medical University"}
                       </p>
                     </div>
 
-                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                    <p className="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-3 flex-grow">
                       {countryData.description}
                     </p>
 
                     {/* Action Button */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between mt-auto">
                       <span className="text-blue-600 font-semibold group-hover:text-blue-700 transition-colors">
                         Explore Colleges
                       </span>
