@@ -25,7 +25,7 @@ export default function EnquiryModal() {
     []
   );
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus({ type: null, message: "" });
 
@@ -39,15 +39,51 @@ export default function EnquiryModal() {
     }
 
     setSubmitting(true);
-    setTimeout(() => {
-      setStatus({
-        type: "success",
-        message: "Thank you! Your enquiry has been sent successfully.",
+
+    try {
+      // Create custom subject with user's name
+      const subject = `Admission Dunia - Enquiry from ${formState.name}`;
+
+      // Prepare form data
+      const formDataToSubmit = new FormData();
+      formDataToSubmit.append("access_key", "4aa22b32-5b40-49e7-a2bc-a7c1b1d11ac4");
+      formDataToSubmit.append("name", formState.name);
+      formDataToSubmit.append("email", formState.email);
+      formDataToSubmit.append("phone", formState.phone);
+      formDataToSubmit.append("course", formState.course);
+      formDataToSubmit.append("message", formState.message);
+      formDataToSubmit.append("subject", subject);
+
+      // Submit to Web3Forms
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSubmit,
       });
-      setFormState({ name: "", email: "", phone: "", course: "", message: "" });
+
+      const data = await response.json();
+
+      if (response.status === 200) {
+        setStatus({
+          type: "success",
+          message: data.message || "Thank you! Your enquiry has been sent successfully.",
+        });
+        setFormState({ name: "", email: "", phone: "", course: "", message: "" });
+        setTimeout(close, 2000);
+      } else {
+        setStatus({
+          type: "error",
+          message: data.message || "Something went wrong. Please try again.",
+        });
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setStatus({
+        type: "error",
+        message: "Failed to send enquiry. Please try again later.",
+      });
+    } finally {
       setSubmitting(false);
-      setTimeout(close, 2000);
-    }, 1500);
+    }
   };
 
   const handleChange =
