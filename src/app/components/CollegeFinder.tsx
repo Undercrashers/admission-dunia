@@ -74,7 +74,7 @@ const COLLEGES: College[] = [
     location: "Chennai",
     stream: "Engineering",
     degrees: ["B.Tech", "B.E."],
-    logo: "/college_building/srm-chennai.jpg",
+    logo: "/college_building/srm-chennai.webp",
     slug: "srm-chennai",
   },
 
