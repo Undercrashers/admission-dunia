@@ -13,7 +13,10 @@ const isValidEmail = (email: string): boolean => {
 const isValidPhone = (phone: string): boolean => {
   // Accepts international format: +1234567890, (123) 456-7890, 123-456-7890, 1234567890
   const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
-  return phoneRegex.test(phone.replace(/\s/g, "")) && phone.replace(/\D/g, "").length >= 10;
+  return (
+    phoneRegex.test(phone.replace(/\s/g, "")) &&
+    phone.replace(/\D/g, "").length >= 10
+  );
 };
 
 export default function EnquiryModal() {
@@ -67,7 +70,9 @@ export default function EnquiryModal() {
 
     // Validate phone
     if (!isValidPhone(formState.phone)) {
-      setErrors({ phone: "Please enter a valid phone number (at least 10 digits)" });
+      setErrors({
+        phone: "Please enter a valid phone number (at least 10 digits)",
+      });
       setStatus({
         type: "error",
         message: "Please enter a valid phone number (at least 10 digits).",
@@ -222,7 +227,9 @@ export default function EnquiryModal() {
                       errorMsg = !isValid ? "Invalid email address" : "";
                     } else if (isPhoneField && fieldValue) {
                       isValid = isValidPhone(fieldValue);
-                      errorMsg = !isValid ? "Invalid phone number (min 10 digits)" : "";
+                      errorMsg = !isValid
+                        ? "Invalid phone number (min 10 digits)"
+                        : "";
                     }
 
                     return (
@@ -238,8 +245,7 @@ export default function EnquiryModal() {
                           type={type}
                           required
                           className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:outline-none transition-all text-sm md:text-base text-gray-900 placeholder:text-gray-400 bg-white ${
-                            status.type === "error" &&
-                            !fieldValue?.trim()
+                            status.type === "error" && !fieldValue?.trim()
                               ? "border-red-500 focus:ring-red-500 focus:border-red-500"
                               : fieldValue && !isValid
                               ? "border-red-500 focus:ring-red-500 focus:border-red-500"
@@ -252,7 +258,9 @@ export default function EnquiryModal() {
                           onChange={handleChange(id as keyof typeof formState)}
                         />
                         {errorMsg && (
-                          <p className="text-red-500 text-xs mt-1">✗ {errorMsg}</p>
+                          <p className="text-red-500 text-xs mt-1">
+                            ✗ {errorMsg}
+                          </p>
                         )}
                         {fieldValue && isValid && (
                           <p className="text-green-600 text-xs mt-1">✓ Valid</p>
