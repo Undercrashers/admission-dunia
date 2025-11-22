@@ -46,7 +46,10 @@ export default function EnquiryModal() {
 
       // Prepare form data
       const formDataToSubmit = new FormData();
-      formDataToSubmit.append("access_key", "4aa22b32-5b40-49e7-a2bc-a7c1b1d11ac4");
+      formDataToSubmit.append(
+        "access_key",
+        "4aa22b32-5b40-49e7-a2bc-a7c1b1d11ac4"
+      );
       formDataToSubmit.append("name", formState.name);
       formDataToSubmit.append("email", formState.email);
       formDataToSubmit.append("phone", formState.phone);
@@ -65,9 +68,17 @@ export default function EnquiryModal() {
       if (response.status === 200) {
         setStatus({
           type: "success",
-          message: data.message || "Thank you! Your enquiry has been sent successfully.",
+          message:
+            data.message ||
+            "Thank you! Your enquiry has been sent successfully.",
         });
-        setFormState({ name: "", email: "", phone: "", course: "", message: "" });
+        setFormState({
+          name: "",
+          email: "",
+          phone: "",
+          course: "",
+          message: "",
+        });
         setTimeout(close, 2000);
       } else {
         setStatus({
