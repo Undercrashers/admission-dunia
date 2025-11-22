@@ -4,6 +4,18 @@ import { FormEvent, useMemo, useState } from "react";
 import { useEnquiryModal } from "./EnquiryModalContext";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Validation functions
+const isValidEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const isValidPhone = (phone: string): boolean => {
+  // Accepts international format: +1234567890, (123) 456-7890, 123-456-7890, 1234567890
+  const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
+  return phoneRegex.test(phone.replace(/\s/g, "")) && phone.replace(/\D/g, "").length >= 10;
+};
+
 export default function EnquiryModal() {
   const { isOpen, close } = useEnquiryModal();
 
@@ -15,6 +27,10 @@ export default function EnquiryModal() {
     message: "",
   });
   const [submitting, setSubmitting] = useState(false);
+  const [errors, setErrors] = useState<{
+    email?: string;
+    phone?: string;
+  }>({});
   const [status, setStatus] = useState<{
     type: "success" | "error" | null;
     message: string;
@@ -28,12 +44,33 @@ export default function EnquiryModal() {
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus({ type: null, message: "" });
+    setErrors({});
 
     const missing = requiredIds.filter((k) => !formState[k].trim());
     if (missing.length) {
       setStatus({
         type: "error",
         message: "Please fill out all required fields.",
+      });
+      return;
+    }
+
+    // Validate email
+    if (!isValidEmail(formState.email)) {
+      setErrors({ email: "Please enter a valid email address" });
+      setStatus({
+        type: "error",
+        message: "Please enter a valid email address.",
+      });
+      return;
+    }
+
+    // Validate phone
+    if (!isValidPhone(formState.phone)) {
+      setErrors({ phone: "Please enter a valid phone number (at least 10 digits)" });
+      setStatus({
+        type: "error",
+        message: "Please enter a valid phone number (at least 10 digits).",
       });
       return;
     }
@@ -173,30 +210,56 @@ export default function EnquiryModal() {
                       type: "text",
                       placeholder: "e.g., Computer Science",
                     },
-                  ].map(({ id, label, type, placeholder }) => (
-                    <div key={id}>
-                      <label
-                        htmlFor={id}
-                        className="block text-sm font-medium text-slate-700 mb-1"
-                      >
-                        {label}
-                      </label>
-                      <input
-                        id={id}
-                        type={type}
-                        required
-                        className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm md:text-base text-gray-900 placeholder:text-gray-400 bg-white ${
-                          status.type === "error" &&
-                          !formState[id as keyof typeof formState]?.trim()
-                            ? "border-red-500"
-                            : "border-slate-300"
-                        }`}
-                        placeholder={placeholder}
-                        value={formState[id as keyof typeof formState]}
-                        onChange={handleChange(id as keyof typeof formState)}
-                      />
-                    </div>
-                  ))}
+                  ].map(({ id, label, type, placeholder }) => {
+                    const isEmailField = id === "email";
+                    const isPhoneField = id === "phone";
+                    const fieldValue = formState[id as keyof typeof formState];
+                    let isValid = true;
+                    let errorMsg = "";
+
+                    if (isEmailField && fieldValue) {
+                      isValid = isValidEmail(fieldValue);
+                      errorMsg = !isValid ? "Invalid email address" : "";
+                    } else if (isPhoneField && fieldValue) {
+                      isValid = isValidPhone(fieldValue);
+                      errorMsg = !isValid ? "Invalid phone number (min 10 digits)" : "";
+                    }
+
+                    return (
+                      <div key={id}>
+                        <label
+                          htmlFor={id}
+                          className="block text-sm font-medium text-slate-700 mb-1"
+                        >
+                          {label}
+                        </label>
+                        <input
+                          id={id}
+                          type={type}
+                          required
+                          className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:outline-none transition-all text-sm md:text-base text-gray-900 placeholder:text-gray-400 bg-white ${
+                            status.type === "error" &&
+                            !fieldValue?.trim()
+                              ? "border-red-500 focus:ring-red-500 focus:border-red-500"
+                              : fieldValue && !isValid
+                              ? "border-red-500 focus:ring-red-500 focus:border-red-500"
+                              : fieldValue && isValid
+                              ? "border-green-500 focus:ring-green-500 focus:border-green-500"
+                              : "border-slate-300 focus:ring-blue-500 focus:border-blue-500"
+                          }`}
+                          placeholder={placeholder}
+                          value={fieldValue}
+                          onChange={handleChange(id as keyof typeof formState)}
+                        />
+                        {errorMsg && (
+                          <p className="text-red-500 text-xs mt-1">✗ {errorMsg}</p>
+                        )}
+                        {fieldValue && isValid && (
+                          <p className="text-green-600 text-xs mt-1">✓ Valid</p>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
 
                 <div className="mb-6">
