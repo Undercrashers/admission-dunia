@@ -65,7 +65,8 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-slate-400">
               <li>
-                <p>123 Education Lane, Knowledge City</p>
+                <p>3rd Floor, J.J. Complex, Opp. Bharat Petrol Pump,</p>
+                <p>Boring Canal Road, Patna - 800001</p>
               </li>
               <li>
                 <p>admissionduniaedu@gmail.com</p>
