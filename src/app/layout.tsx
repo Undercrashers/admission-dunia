@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Admission Dunia 2.0 - Your Path to Top Colleges",
   description:
     "Expert guidance and personalized counseling to help you secure admission into top universities worldwide.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
