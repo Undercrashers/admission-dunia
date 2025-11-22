@@ -41,26 +41,19 @@ export default function EnquiryModal() {
     setSubmitting(true);
 
     try {
-      // Create custom subject with user's name
-      const subject = `Admission Dunia - Enquiry from ${formState.name}`;
-
-      // Prepare form data
-      const formDataToSubmit = new FormData();
-      formDataToSubmit.append(
-        "access_key",
-        "4aa22b32-5b40-49e7-a2bc-a7c1b1d11ac4"
-      );
-      formDataToSubmit.append("name", formState.name);
-      formDataToSubmit.append("email", formState.email);
-      formDataToSubmit.append("phone", formState.phone);
-      formDataToSubmit.append("course", formState.course);
-      formDataToSubmit.append("message", formState.message);
-      formDataToSubmit.append("subject", subject);
-
-      // Submit to Web3Forms
-      const response = await fetch("https://api.web3forms.com/submit", {
+      // Submit to our Brevo API endpoint
+      const response = await fetch("/api/enquiry", {
         method: "POST",
-        body: formDataToSubmit,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          phone: formState.phone,
+          course: formState.course,
+          message: formState.message,
+        }),
       });
 
       const data = await response.json();
